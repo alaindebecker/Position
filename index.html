@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+
+<style>
+* { font-family: sans-serif }
+</style>
+
+<body>
+	<h1>Position</h1>
+	<table>
+		<tr><td>Time:    </td><td id="time">      </td></tr>
+		<tr><td>Latitude:</td><td id="latitude">  </td></tr>
+		<tr><td>Longitude:</td><td id="longitude"></td></tr>
+	</table>
+	<label><input id="loop" type="checkbox" onclick="position()" />Loop</label>
+</body>
+
+<script>
+position = function(){
+	console.log("Hi")
+	navigator.geolocation.getCurrentPosition(function(pos){
+		time = new Date(pos.timestamp)
+		lat  = Number(pos.coords.latitude)
+		lgt  = Number(pos.coords.longitude)
+
+		document.getElementById("time").innerHTML = time.toISOString().substring(0,10) +" "+ time.toLocaleTimeString()
+		//document.getElementById("time").innerHTML = time.toISOString().replace("T", " ")
+		document.getElementById("latitude").innerHTML = lat.toFixed(4)
+		document.getElementById("longitude").innerHTML = lgt.toFixed(4)
+
+		if(document.getElementById("loop").checked)
+			position()
+	})
+}
+position()
+</script>
