@@ -17,7 +17,7 @@
 <script>
 position = function(){
 	console.log("Hi")
-	navigator.geolocation.getCurrentPosition(function(pos){
+	navigator.geolocation.watchPosition(function(pos){
 		time = new Date(pos.timestamp)
 		lat  = Number(pos.coords.latitude)
 		lgt  = Number(pos.coords.longitude)
@@ -27,8 +27,8 @@ position = function(){
 		document.getElementById("latitude").innerHTML = lat.toFixed(4)
 		document.getElementById("longitude").innerHTML = lgt.toFixed(4)
 
-		if(document.getElementById("loop").checked)
-			position()
+		//if(document.getElementById("loop").checked)
+		//	position()
 	})
 }
 position()
