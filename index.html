@@ -24,8 +24,8 @@ position = function(){
 
 		document.getElementById("time").innerHTML = time.toISOString().substring(0,10) +" "+ time.toLocaleTimeString()
 		//document.getElementById("time").innerHTML = time.toISOString().replace("T", " ")
-		document.getElementById("latitude").innerHTML = lat.toFixed(4)
-		document.getElementById("longitude").innerHTML = lgt.toFixed(4)
+		document.getElementById("latitude").innerHTML = lat.toFixed(6)
+		document.getElementById("longitude").innerHTML = lgt.toFixed(6)
 
 		//if(document.getElementById("loop").checked)
 		//	position()
