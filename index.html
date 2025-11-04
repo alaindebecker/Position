@@ -10,6 +10,7 @@
 		<tr><td>Time:    </td><td id="time">      </td></tr>
 		<tr><td>Latitude:</td><td id="latitude">  </td></tr>
 		<tr><td>Longitude:</td><td id="longitude"></td></tr>
+		<tr><td>G-maps:</td><td id="url"></td></tr>
 	</table>
 	<!--label><input id="loop" type="checkbox" onclick="position()" />Loop</label-->
 </body>
@@ -21,12 +22,13 @@ position = function(){
 		time = new Date(pos.timestamp)
 		lat  = Number(pos.coords.latitude)
 		lgt  = Number(pos.coords.longitude)
+		url = "https://www.google.com/maps/@"+lat.toFixed(6)+","+lgt.toFixed(6)
 
 		document.getElementById("time").innerHTML = time.toISOString().substring(0,10) +" "+ time.toLocaleTimeString()
 		//document.getElementById("time").innerHTML = time.toISOString().replace("T", " ")
 		document.getElementById("latitude").innerHTML = lat.toFixed(6)
 		document.getElementById("longitude").innerHTML = lgt.toFixed(6)
-
+		document.getElementById("url").innerHTML = url
 		//if(document.getElementById("loop").checked)
 		//	position()
 	})
